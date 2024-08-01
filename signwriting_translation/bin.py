@@ -15,6 +15,7 @@ sw_tokenizer = SignWritingTokenizer()
 
 
 def process_translation_output(output: TranslatorOutput):
+    print(output)
     all_factors = [output.tokens] + output.factor_tokens
     symbols = [" ".join(f).replace("M c0 r0", "M") for f in list(zip(*all_factors))]
     return sw_tokenizer.tokens_to_text((" ".join(symbols)).split(" "))
